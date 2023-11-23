@@ -7,5 +7,4 @@
     Zombie zb(name);
 
     zb.anouce();
-
  }

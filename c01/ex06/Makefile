@@ -1,15 +1,14 @@
-NAME		=	zombie
-CXX			=	c++ 
+NAME	=	harl
+CXX		=	c++ 
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-RM			=	rm -rf
+RM		=	rm -rf
 
-INCLUDE 	= Zombie.hpp 
+HEADERS = Harl.hpp 
 
-SRCS		=	main.cpp \
-				Zombie.cpp \
-				zombieHorde.cpp
+SRCS	=	main.cpp \
+			Harl.cpp 
 
-OBJS		=	${SRCS:.c=.o}
+OBJS	=	${SRCS:.c=.o}
 
 all	:
 	@$(MAKE)  $(NAME)
@@ -17,8 +16,8 @@ all	:
 $(NAME) : $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.cpp $(INCLUDE)
-	@$(CXX) $(CFLAGS) -c $< -o $@
+%.o : %.cpp $(HEADERS)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
 	@$(RM)

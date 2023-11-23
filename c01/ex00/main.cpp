@@ -7,7 +7,6 @@ int main()
     zb->anouce();
 
     randomChump("Rzombie");
-
     delete zb;
     return 0;
 }

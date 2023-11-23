@@ -1,7 +1,11 @@
-NAME	 =	brain
+NAME	 =	violence
 CXX		 =	c++ 
 CXXFLAGS =	-Wall -Wextra -Werror -std=c++98
 RM		 =	rm -rf
+
+INCLUDE 	= HumanA.hpp \
+			  HumanB.hpp \
+			  Weapon.hpp
 
 SRCS	 =	main.cpp \
 			HumanA.cpp \

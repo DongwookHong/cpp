@@ -6,8 +6,6 @@ Zombie::~Zombie(){
 
 }
 
-
-
 void Zombie::anouce(){
     std::cout<<name<<": BraiiiiiiinnnzzzZ..."<<std::endl;
 }

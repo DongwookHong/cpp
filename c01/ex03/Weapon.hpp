@@ -1,11 +1,14 @@
 #pragma  once
-#include <iostream>
 
+#include <iostream>
+#include <string>
 class Weapon{
 	private:
 		std::string str;
 	public:
-		Weapon(std::string str);
+
+		Weapon();
+		Weapon(std::string weapon);
 		~Weapon();
 
 		std::string getType () const;

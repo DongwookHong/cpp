@@ -1,25 +1,25 @@
-NAME	=	zombie
-CC		=	c++ 
-CFLAG	=	-Wall -Wextra -Werror -std=c++98
-RM		=	rm -rf
+NAME		=	zombie
+CXX			=	c++ 
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+RM			=	rm -rf
 
-HEADERS = Zombie.hpp 
+INCLUDE 	= Zombie.hpp 
 
-SRCS	=	newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp \
-			main.cpp
+SRCS		=	newZombie.cpp \
+				randomChump.cpp \
+				Zombie.cpp \
+				main.cpp
 
-OBJS	=	${SRCS:.c=.o}
+OBJS		=	${SRCS:.c=.o}
 
 all	:
 	@$(MAKE)  $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.cpp $(HEADERS)
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.cpp $(INCLUDE)
+	@$(CXX) $(CFLAGS) -c $< -o $@
 
 clean :
 	@$(RM)

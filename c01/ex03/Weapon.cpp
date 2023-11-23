@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string _str): str(_str){}
-
+Weapon::Weapon(std::string _weapon):str(_weapon){}
 Weapon::~Weapon(){}
 
 
