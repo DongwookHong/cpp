@@ -4,15 +4,17 @@ Copy::Copy(){}
 Copy::~Copy(){}
 
 
-bool Copy::setCopy(std::string filename) {
+bool Copy::setCopy(char* filename) {
 	this->readfile.open(filename);
 	if (!this->readfile.is_open())
 	{
 		std::cout<<"Can't open file"<<std::endl;
 		return false;
 	}
-	filename += ".replace";  
-    this->writefile.open(filename); 
+	std::string newfile=filename;
+	newfile += ".replace";
+	
+    this->writefile.open(newfile.c_str()); 
 	if (!this->writefile.is_open())
 	{
 		this->readfile.close();

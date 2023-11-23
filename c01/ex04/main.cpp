@@ -8,11 +8,11 @@ int main(int ac, char **av) {
 		std::cout<<"Please Check Argument"<<std::endl;
 		return 1;
 	}
-	std::string filename = av[1];
+	// std::string filename = av[1];
 	std::string str1= av[2];
 	std::string str2=av[3];
 	
-	if (!co.setCopy(filename))
+	if (!co.setCopy(av[1]))
 		return 1;
 	if(str1 =="")
 	{

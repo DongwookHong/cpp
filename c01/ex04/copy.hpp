@@ -12,6 +12,6 @@ class Copy {
         Copy();
         ~Copy();
 
-        bool setCopy(std::string);
+        bool setCopy(char *string);
         void exe(std::string str1, std::string  str2);
 };
