@@ -13,7 +13,6 @@ bool Copy::setCopy(char* filename) {
 	}
 	std::string newfile=filename;
 	newfile += ".replace";
-	
     this->writefile.open(newfile.c_str()); 
 	if (!this->writefile.is_open())
 	{

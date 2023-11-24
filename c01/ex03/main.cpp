@@ -9,7 +9,7 @@ int main()
     HumanA bob("bob",wea);
     bob.attack();
 
-    wea.setType("some other tpye of club");
+    wea.setType("some other type of club");
     bob.attack();
 
 
@@ -18,6 +18,6 @@ int main()
     jim.attack();
     jim.setWeapon(pon);
     jim.attack();
-    wea.setType("some other tpye of club");
+    pon.setType("some other type of club");
     jim.attack();
 }

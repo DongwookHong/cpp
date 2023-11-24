@@ -3,7 +3,7 @@
 
 int main()
 {
-    int	zombie = -1;
+    int	zombie = 10;
 
 	Zombie* zb = zombieHorde(zombie, "Foooooo~");
 	if (!zb)
