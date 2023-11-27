@@ -22,19 +22,20 @@ Fixed::Fixed(const Fixed& ref)
 Fixed& Fixed::operator=(const Fixed& ref)
 {
 	std::cout<<"Copy assignment operator called"<<std::endl;
-	num = ref.getRawBits();
+	this->num = ref.getRawBits();
 	return *this;
-
 }
 
 
 int Fixed::getRawBits( void ) const
 {
+	std::cout<<"getRawBits member function called" <<std::endl;
 	return this->num;
 }
 
 
 void Fixed::setRawBits( int const raw )
 {
+	std::cout<<"setRawBits member function called" <<std::endl;
 	this->num = raw;
 }

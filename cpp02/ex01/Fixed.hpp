@@ -1,0 +1,18 @@
+#pragma once
+
+#include <iostream>
+
+class Fixed {
+	private:
+		int 				num;
+		static const int	bits = 8;
+	public:
+		Fixed();
+		Fixed(const Fixed& ref);
+		~Fixed();
+		
+		
+		Fixed& operator=(const Fixed& ref);
+		int getRawBits( void ) const;
+		void setRawBits( int const raw );
+};
