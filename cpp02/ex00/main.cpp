@@ -3,10 +3,10 @@
 int main()
 {
 	Fixed a;
-	// a.setRawBits(10);
 	Fixed b( a );
 	Fixed c;
-	c = b;
+	Fixed *p = &c;
+	c = *p;
 	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
