@@ -9,17 +9,13 @@ Fixed::Fixed()
 Fixed::Fixed(const int numInt)
 {
 	std::cout<<"Int constructor called"<<std::endl;
-	printf("this value is %d\n",numInt);
 	this->num = numInt<<bits;
-	printf("this value is %d\n",this->num);
 }
 		
 Fixed::Fixed(const float numFloat)
 {
 	std::cout<<"Float constructor called"<<std::endl;
-	printf("this value is %f\n",numFloat);
 	this->num = roundf(numFloat * 256 );
-	printf("%d\n",this->num);
 }
 
 Fixed::~Fixed()
