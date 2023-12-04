@@ -1,31 +1,59 @@
 #include <iostream>
 
-class Base {
+using namespace std;
 
- public:
-  Base() { std::cout << "기반 클래스" << std::endl; }
+class PoweredDevice
+{
+protected:
+ 
 
-  virtual void what() { std::cout << "기반 클래스의 what()" << std::endl; }
+public:
+	int m_i;
+  PoweredDevice(){};
+	PoweredDevice(int power)
+	{
+		cout << "PoweredDevice: " << power << "\n";
+	}
 };
-class Derived : public Base {
 
- public:
-  Derived() : Base() { std::cout << "파생 클래스" << std::endl; }
-
-  void what() { std::cout << "파생 클래스의 what()" << std::endl; }
+class Scanner : virtual public PoweredDevice
+{
+public:
+	Scanner(int scanner, int power)
+		:PoweredDevice(power)
+	{
+		cout << "Scanner: " << scanner << "\n";
+	}
 };
-int main() {
-  Base p;
-  Derived c;
 
-  Base* p_c = &c;
-  Base* p_p = &p;
+class Printer : virtual public PoweredDevice
+{
+public:
+	Printer(int printer, int power)
+		: PoweredDevice(power)
+	{
+		cout << "Printer: " << printer << "\n";
+    this->m_i= 10;
+	}
+};
 
-  std::cout << " == 실제 객체는 Base == " << std::endl;
-  p_p->what();
+class Copier :public Scanner, public Printer
+{
+public:
+	Copier(int scanner, int printer, int power)
+		// : Scanner(scanner, power), Printer(printer, power),PoweredDevice(power)
+		: Scanner(scanner, power), Printer(printer, power)
+    {}
 
-  std::cout << " == 실제 객체는 Derived == " << std::endl;
-  p_c->what();
+};
 
-  return 0;
+int main()
+{
+
+	Copier cop(1, 2, 3); //생성자 호출
+
+  cout << &cop.Scanner::PoweredDevice::m_i << endl;
+	cout << &cop.Printer::PoweredDevice::m_i << endl;
+
+	return 0;
 }

@@ -5,7 +5,7 @@
 #include "FragTrap.hpp"
 
 
-class DiamondTrap: public ScavTrap, public FragTrap , public ClapTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {   
     private:
         std::string name;
@@ -21,9 +21,4 @@ class DiamondTrap: public ScavTrap, public FragTrap , public ClapTrap
         void DiamondTrap::attack(const std::string& target);
         void highFivesGuys();
         
-    DiamondTrap::DiamondTrap(std::string _name):  ClapTrap(_name){
-	std::cout<<"DiamondTrap Constructor called"<<std::endl;
-	
-}
- 
 };

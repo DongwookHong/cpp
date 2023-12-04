@@ -34,13 +34,6 @@ FragTrap& FragTrap::operator=(FragTrap& ref)
 	return *this;
 }
 
-
-void FragTrap::guardGate()
-{
-	std::cout<<"FragTrap is now in Gate keeper mode"<<std::endl;
-};
-
-
 void FragTrap::attack(const std::string& target)
 {
     if(this->name.empty())
@@ -57,5 +50,5 @@ void FragTrap::attack(const std::string& target)
 }
 
  void highFivesGuys(){
-	
+	std::cout<<"FragTrap hifive with you"<<std::endl;
  } 

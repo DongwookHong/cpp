@@ -5,9 +5,9 @@ DiamondTrap::DiamondTrap()
 	std::cout<<"DiamondTrap Default constructor called"<<std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string _name):  ClapTrap(_name){
+DiamondTrap::DiamondTrap(std::string _name):  ClapTrap(_name + "_clap_name"),FragTrap(_name),ScavTrap(_name){
 	std::cout<<"DiamondTrap Constructor called"<<std::endl;
-	
+	this->name =_name;
 }
 
 
