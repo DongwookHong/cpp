@@ -18,7 +18,7 @@ DiamondTrap::~DiamondTrap(){
 	std::cout<<"DiamondTrap destructor called"<<std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap& ref)
+DiamondTrap::DiamondTrap(DiamondTrap& ref):ClapTrap(ref.name + "_clap_name"), ScavTrap(ref.name), FragTrap(ref.name)
 {
 	std::cout<<"DiamondTrap Copy constructor called" <<std::endl;
 	*this = ref;

@@ -17,7 +17,7 @@ ScavTrap::~ScavTrap(){
 	std::cout<<"ScavTrap destructor called"<<std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& ref)
+ScavTrap::ScavTrap(ScavTrap& ref):ClapTrap(ref.name)
 {
 	std::cout<<"ScavTrap Copy constructor called" <<std::endl;
 	*this = ref;

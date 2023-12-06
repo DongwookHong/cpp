@@ -17,7 +17,7 @@ FragTrap::~FragTrap(){
 	std::cout<<"FragTrap destructor called"<<std::endl;
 }
 
-FragTrap::FragTrap(FragTrap& ref)
+FragTrap::FragTrap(FragTrap& ref):ClapTrap(ref.name)
 {
 	std::cout<<"FragTrap Copy constructor called" <<std::endl;
 	*this = ref;
