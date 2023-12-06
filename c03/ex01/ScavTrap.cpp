@@ -35,7 +35,7 @@ ScavTrap& ScavTrap::operator=(ScavTrap& ref)
 }
 
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate(void)
 {
 	std::cout<<"ScavTrap is now in Gate keeper mode"<<std::endl;
 };

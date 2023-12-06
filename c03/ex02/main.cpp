@@ -1,31 +1,30 @@
-#include <iostream>
-
-class Base {
-
- public:
-  Base() { std::cout << "기반 클래스" << std::endl; }
-
-  virtual void what() { std::cout << "기반 클래스의 what()" << std::endl; }
-};
-class Derived : public Base {
-
- public:
-  Derived() : Base() { std::cout << "파생 클래스" << std::endl; }
-
-  void what() { std::cout << "파생 클래스의 what()" << std::endl; }
-};
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 int main() {
-  Base p;
-  Derived c;
 
-  Base* p_c = &c;
-  Base* p_p = &p;
+  ClapTrap a("A");
 
-  std::cout << " == 실제 객체는 Base == " << std::endl;
-  p_p->what();
+  a.attack("tomson");
 
-  std::cout << " == 실제 객체는 Derived == " << std::endl;
-  p_c->what();
+  ScavTrap b("B");
 
+  b.attack("amumu");
+  b.guardGate();
+
+  FragTrap c("C");
+  c.attack("amumu");
+  c.highFivesGuys();
+
+
+  ClapTrap * frag = new FragTrap("oriana");
+
+  frag->attack("amumu");
+
+  FragTrap *trap = new FragTrap("oriana");
+
+  trap->highFivesGuys();
+  delete frag; 
+  delete trap;
   return 0;
 }

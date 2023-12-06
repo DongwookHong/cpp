@@ -1,59 +1,55 @@
 #include <iostream>
-
-using namespace std;
-
-class PoweredDevice
-{
-protected:
- 
-
-public:
-	int m_i;
-  PoweredDevice(){};
-	PoweredDevice(int power)
-	{
-		cout << "PoweredDevice: " << power << "\n";
-	}
-};
-
-class Scanner : virtual public PoweredDevice
-{
-public:
-	Scanner(int scanner, int power)
-		:PoweredDevice(power)
-	{
-		cout << "Scanner: " << scanner << "\n";
-	}
-};
-
-class Printer : virtual public PoweredDevice
-{
-public:
-	Printer(int printer, int power)
-		: PoweredDevice(power)
-	{
-		cout << "Printer: " << printer << "\n";
-    this->m_i= 10;
-	}
-};
-
-class Copier :public Scanner, public Printer
-{
-public:
-	Copier(int scanner, int printer, int power)
-		// : Scanner(scanner, power), Printer(printer, power),PoweredDevice(power)
-		: Scanner(scanner, power), Printer(printer, power)
-    {}
-
-};
+#include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
+//    DiamondTrap a("Erick");
 
-	Copier cop(1, 2, 3); //생성자 호출
 
-  cout << &cop.Scanner::PoweredDevice::m_i << endl;
-	cout << &cop.Printer::PoweredDevice::m_i << endl;
+// 	a.attack("amumu");
 
+// 	a.guardGate();
+// 	a.highFivesGuys();
+// 	a.whoAmI();
+
+
+
+	ClapTrap *clap = new DiamondTrap("Oriana");
+
+	clap->takeDamage(20);
+
+	std::cout<<"---------------------------------"<<std::endl;
+	std::cout<<std::endl;
+
+	FragTrap* frag = new DiamondTrap("Oriana");
+
+	frag->beRepaired(10);
+	frag->highFivesGuys();
+	std::cout<<"---------------------------------"<<std::endl;
+	std::cout<<std::endl;
+
+	ScavTrap* scav = new DiamondTrap("Oriana");
+
+	scav->attack("amumu");
+	scav->guardGate();
+	std::cout<<"---------------------------------"<<std::endl;
+	std::cout<<std::endl;
+
+	DiamondTrap *dia = new DiamondTrap("dia");
+
+	dia->beRepaired(19);
+	dia->highFivesGuys();
+	dia->guardGate();
+	dia->whoAmI();
+
+
+	
+	delete clap;
+	delete frag;
+	delete scav;
+	delete dia;
 	return 0;
+
 }

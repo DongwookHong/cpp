@@ -5,7 +5,8 @@ RM		 =	rm -rf
 
 SRCS	 =	main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			ScavTrap.cpp \
+			FragTrap.cpp
 			
 
 OBJS	 =	${SRCS:.c=.o}

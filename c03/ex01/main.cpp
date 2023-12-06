@@ -3,6 +3,7 @@
 
 int main()
 {
+	/* 
   ClapTrap a("tomy");
 
   	a.attack("James");
@@ -17,7 +18,7 @@ int main()
   
   ScavTrap b("rew");
 
-  b.attack("James");
+   b.attack("James");
 	std::cout << std::endl;
 
 	b.takeDamage(3);
@@ -28,7 +29,16 @@ int main()
 
 
 	b.guardGate();
-  
+ */
+	ClapTrap* test = new ScavTrap("test");
+
+	test->attack("test");
+
+
+	ScavTrap* test1 = new ScavTrap("test1");
+	test1->guardGate();
+	delete test;
+	delete test1;
 }
 
 //virtual keyword // upcasting

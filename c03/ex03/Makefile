@@ -5,28 +5,30 @@ RM		 =	rm -rf
 
 SRCS	 =	main.cpp \
 			ClapTrap.cpp \
-			ScavTrap.cpp
+			ScavTrap.cpp \
+			FragTrap.cpp \
+			DiamondTrap.cpp
 			
 
 OBJS	 =	${SRCS:.c=.o}
 
 all	:
-	@$(MAKE)  $(NAME)
+	make $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
-	@$(RM)
+	$(RM)
 
 fclean : clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re :
-	@$(MAKE) fclean
-	@$(MAKE) all
+	make fclean
+	make all
 
 .PHONY : all clean fclean re

@@ -2,9 +2,9 @@
 
 int main()
 {
-    ClapTrap a("tomy");
+    ClapTrap a("my name");
 
-	a.attack("James");
+	a.attack("hi");
 	std::cout << std::endl;
 
 	a.takeDamage(3);
