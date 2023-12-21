@@ -47,9 +47,9 @@ ClapTrap&  ClapTrap::operator=(const ClapTrap& ref){
     if (this != &ref)
     {
         this->name=ref.name;
-        this->name=ref.Hp;
-        this->name=ref.Ep;
-        this->name=ref.Ad;
+        this->Hp=ref.Hp;
+        this->Ep =ref.Ep;
+        this->Ad=ref.Ad;
     }
     return *this;
 }

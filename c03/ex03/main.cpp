@@ -43,6 +43,7 @@ int main()
 	dia->highFivesGuys();
 	dia->guardGate();
 	dia->whoAmI();
+	dia->attack("juyang");
 
 
 	
