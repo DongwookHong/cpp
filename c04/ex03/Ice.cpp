@@ -5,13 +5,14 @@ Ice::~Ice() {
   std::cout << "Ice destructor constructor called"<<std::endl;
 }
 
-Ice::Ice(const Ice& ref) { 
+Ice::Ice(const Ice& ref): AMateria("ice") { 
   std::cout << "Ice copy constructor called"<<std::endl;
   *this = ref; 
   }
 
 Ice& Ice::operator=(const Ice& ref) {
   if (this != &ref) {
+    std::cout<<"Cure Copy assignment constructor called"<<std::endl;
     this->type= ref.getType();
   }
   return *this;
