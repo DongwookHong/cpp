@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+
 void test1();
 void test2();
 void test3();
@@ -10,19 +10,17 @@ void test4();
 
 int main() {
   test1();
-  // test2();
-  // test3();
-  // test4();
+  test2();
+  test3();
+  test4();
   return 0;
 }
 
 void test1() {
   try {
     Bureaucrat test1("A", 150);
-    Form test2("B", 3);
+    test1.decrement();
     std::cout << test1 << std::endl;
-    std::cout << test2 << std::endl;
-    test2.signForm(test1);
   } catch (const std::exception& e) {
     std::cout << e.what() << std::endl;
   }

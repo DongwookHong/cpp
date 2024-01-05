@@ -35,7 +35,7 @@ const char* Form::GradeTooHighException::what(void) const throw() {
   return "Check grade , Grade is too High";
 }
 
-const char* Form::GradeTooLowException::what(void) const throw() {
+const char* Form::GradeTooHighException::what(void) const throw() {
   return "Check grade , Grade is too Low";
 }
 
@@ -43,12 +43,7 @@ const std::string Form::getName() const { return this->name; }
 
 unsigned int Form::getGrade() const { return this->grade; }
 
-Form Form::operator=(const Form& ref) {
-  if (this != &ref) {
-    this->IsSigned = ref.IsSigned;
-  }
-  return *this;
-}
+Form Form::operator=(const Form& ref) { *this = ref; }
 
 std::ostream& operator<<(std::ostream& out, const Form& ref) {
   out << ref.getName() << ", bureaucrat grade " << ref.getGrade() << ".";
