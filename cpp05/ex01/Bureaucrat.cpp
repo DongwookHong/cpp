@@ -8,7 +8,7 @@ Bureaucrat::~Bureaucrat() {
   std::cout << "destructor constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& ref) {
+Bureaucrat::Bureaucrat(const Bureaucrat& ref) : name(ref.getName()) {
   std::cout << "Bureaucrat copy constructor called" << std::endl;
   *this = ref;
 }
@@ -49,11 +49,6 @@ void Bureaucrat::decrement() {
     this->grade += 1;
 }
 
-std::ostream& operator<<(std::ostream& print, const Bureaucrat& ref) {
-  print << ref.getName() << ", bureaucrat grade " << ref.getGrade() << ".";
-  return print;
-}
-
 const std::string Bureaucrat::getName() const { return this->name; }
 
 unsigned int Bureaucrat::getGrade() const { return this->grade; }
@@ -71,3 +66,8 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
   msg = "Check grade , Grade is too Low";
   return msg;
 };
+
+std::ostream& operator<<(std::ostream& print, const Bureaucrat& ref) {
+  print << ref.getName() << ", bureaucrat grade " << ref.getGrade() << ".";
+  return print;
+}
