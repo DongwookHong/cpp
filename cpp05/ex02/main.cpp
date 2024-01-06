@@ -1,55 +1,18 @@
 #include <exception>
 #include <iostream>
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-
-void test1();
-void test2();
-void test3();
-void test4();
-
+#include "ShrubberyCreationForm.hpp"
 int main() {
-  test1();
-  test2();
-  test3();
-  test4();
+  Bureaucrat bureaucrat("shrubbery_executor", 1);
+  ShrubberyCreationForm shrubberyForm;
+
+  try {
+    shrubberyForm.beSigned(bureaucrat);
+  } catch (std::exception& e) {
+    std::cout << "catch exception of shrubberyCreationFormTest" << std::endl;
+  }
+  shrubberyForm.execute(bureaucrat);
   return 0;
-}
-
-void test1() {
-  try {
-    Bureaucrat test1("A", 150);
-    test1.decrement();
-    std::cout << test1 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test2() {
-  try {
-    Bureaucrat test2("B", 2);
-    test2.increment();
-    std::cout << test2 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test3() {
-  try {
-    Bureaucrat test3("C", 0);
-    std::cout << test3 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test4() {
-  try {
-    Bureaucrat test4("D", 30);
-    std::cout << test4 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
 }

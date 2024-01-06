@@ -4,10 +4,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 void test1();
-void test2();
-void test3();
-void test4();
-
 int main() {
   test1();
   // test2();
@@ -18,39 +14,11 @@ int main() {
 
 void test1() {
   try {
-    Bureaucrat test1("A", 150);
-    Form test2("B", 3);
-    std::cout << test1 << std::endl;
-    std::cout << test2 << std::endl;
-    test2.signForm(test1);
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test2() {
-  try {
-    Bureaucrat test2("B", 2);
-    test2.increment();
-    std::cout << test2 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test3() {
-  try {
-    Bureaucrat test3("C", 0);
-    std::cout << test3 << std::endl;
-  } catch (const std::exception& e) {
-    std::cout << e.what() << std::endl;
-  }
-}
-
-void test4() {
-  try {
-    Bureaucrat test4("D", 30);
-    std::cout << test4 << std::endl;
+    Bureaucrat test1("A", 40);
+    Form test2("B", 30, 0);
+    test1.signForm(test2);
+    test2.beSigned(test1);
+    test1.signForm(test2);
   } catch (const std::exception& e) {
     std::cout << e.what() << std::endl;
   }

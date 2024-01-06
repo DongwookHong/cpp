@@ -1,33 +1,28 @@
 #include "Form.hpp"
 
 Form::~Form() {}
-Form ::Form(const std::string _name, const unsigned int _grade)
-    : name(_name), grade(_grade) {
+Form ::Form(const std::string _name, const unsigned int _grade,
+            const unsigned int _exe)
+    : name(_name), SignGrade(_grade), ExecuteGrade(_exe) {
   this->IsSigned = false;
-  if (this->grade < 1) {
-    throw Form::GradeTooHighException();
-  } else if (this->grade > 150) {
-    throw Form::GradeTooLowException();
-  }
+  if (SignGrade < 1)
+    throw GradeTooHighException();
+  else if (SignGrade > 150)
+    throw GradeTooLowException();
 }
 
-Form::Form(const Form& ref) : name(ref.getName()), grade(getGrade()) {
+Form::Form(const Form& ref)
+    : name(ref.getName()),
+      SignGrade(ref.getSignGrade()),
+      ExecuteGrade(ref.getExecuteGrade()) {
   *this = ref;
 }
 
-void Form::signForm(const Bureaucrat& Burea) {
-  if (this->IsSigned) {
-    std::cout << Burea.getName() << " signed " << this->getName() << std::endl;
-  } else {
-    std::cout << Burea.getName() << " couldn't sign " << this->getName()
-              << " becuase "
-              << " can't be bothered" << std::endl;
-  }
-}
-
 void Form::beSigned(const Bureaucrat& Burea) {
-  if (Burea.getGrade() <= this->getGrade()) {
+  if (Burea.getGrade() <= this->getSignGrade()) {
     this->IsSigned = true;
+  } else {
+    throw GradeTooLowException();
   }
 }
 
@@ -39,18 +34,23 @@ const char* Form::GradeTooLowException::what(void) const throw() {
   return "Check grade , Grade is too Low";
 }
 
+bool Form::getType() const { return this->IsSigned; }
+
 const std::string Form::getName() const { return this->name; }
 
-unsigned int Form::getGrade() const { return this->grade; }
+unsigned int Form::getSignGrade() const { return this->SignGrade; }
 
-Form Form::operator=(const Form& ref) {
+unsigned int Form::getExecuteGrade() const { return this->ExecuteGrade; }
+
+Form& Form::operator=(const Form& ref) {
   if (this != &ref) {
-    this->IsSigned = ref.IsSigned;
+    this->IsSigned = ref.getType();
   }
   return *this;
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& ref) {
-  out << ref.getName() << ", bureaucrat grade " << ref.getGrade() << ".";
+  out << ref.getName() << ", ref signgrade " << ref.getSignGrade()
+      << " ref ExecuteGrade " << ref.getExecuteGrade() << ".";
   return out;
 }

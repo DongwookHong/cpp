@@ -4,28 +4,30 @@
 #include <string>
 
 #include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form {
  private:
   const std::string name;
   bool IsSigned;
-  const unsigned int grade;
-
+  const unsigned int SignGrade;
+  const unsigned int ExecuteGrade;
   Form();
 
  public:
   ~Form();
 
-  Form(const std::string _name, const unsigned int _grade);
+  Form(const std::string _name, const unsigned int _grade,
+       const unsigned int _exe);
   Form(const Form& ref);
-  Form operator=(const Form& ref);
+  Form& operator=(const Form& ref);
 
   const std::string getName() const;
-  unsigned int getGrade() const;
+  unsigned int getSignGrade() const;
+  unsigned int getExecuteGrade() const;
+  bool getType() const;
 
   void beSigned(const Bureaucrat& Burea);
-
-  void signForm(const Bureaucrat& burea);
 
   class GradeTooHighException : public std::exception {
    public:

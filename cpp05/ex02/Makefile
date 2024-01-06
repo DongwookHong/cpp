@@ -4,7 +4,9 @@ CXXFLAGS =	-Wall -Wextra -Werror -std=c++98
 RM		 =	rm -rf
 
 SRCS	 =	main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			AForm.cpp \
+			ShrubberyCreationForm.cpp
 			
 
 OBJS	 =	${SRCS:.c=.o}

@@ -21,6 +21,19 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& ref) {
   return *this;
 }
 
+void Bureaucrat::signForm(const Form& form) {
+  if (this->grade > form.getSignGrade()) {
+    std::cout << this->getName() << " couldn't sign " << form.getName()
+              << " becuase "
+              << " you don't have enough Grade" << std::endl;
+  } else if (form.getType()) {
+    std::cout << this->getName() << " couldn't sign " << form.getName()
+              << " becuase "
+              << " already signed" << std::endl;
+  } else
+    std::cout << this->getName() << " signed " << form.getName() << std::endl;
+}
+
 Bureaucrat::Bureaucrat(const std::string _name, const unsigned int _grade)
     : name(_name) {
   std::cout << "constructor called" << std::endl;
