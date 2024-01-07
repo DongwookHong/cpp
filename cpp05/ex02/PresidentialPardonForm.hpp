@@ -8,5 +8,5 @@ class PresidentialPardonForm : public AForm {
   PresidentialPardonForm(const PresidentialPardonForm& ref);
   PresidentialPardonForm& operator=(const PresidentialPardonForm& ref);
 
-  void execute(Bureaucrat const& Shrub);
+  bool execute(Bureaucrat const& Presidential) const;
 };

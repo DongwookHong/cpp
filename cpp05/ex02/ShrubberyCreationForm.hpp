@@ -9,5 +9,5 @@ class ShrubberyCreationForm : public AForm {
   ShrubberyCreationForm(const ShrubberyCreationForm& ref);
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm& ref);
 
-  void execute(Bureaucrat const& Shrub);
+  bool execute(Bureaucrat const& Shrub) const;
 };

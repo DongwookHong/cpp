@@ -1,20 +1,14 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
-  std::cout << "default constructor called " << std::endl;
-}
+Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::~Bureaucrat() {
-  std::cout << "destructor constructor called" << std::endl;
-}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat& ref) : name(ref.getName()) {
-  std::cout << "Bureaucrat copy constructor called" << std::endl;
   *this = ref;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& ref) {
-  std::cout << "Bureaucrat copy assignment operator called" << std::endl;
   if (this != &ref) {
     this->grade = ref.getGrade();
   }
@@ -36,7 +30,6 @@ void Bureaucrat::signForm(const Form& form) {
 
 Bureaucrat::Bureaucrat(const std::string _name, const unsigned int _grade)
     : name(_name) {
-  std::cout << "constructor called" << std::endl;
   this->grade = _grade;
   if (this->grade < 1) {
     throw Bureaucrat::GradeTooHighException();

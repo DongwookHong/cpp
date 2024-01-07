@@ -1,6 +1,9 @@
 #pragma once
 
+#include <ctime>
+
 #include "AForm.hpp"
+
 class RobotomyRequestForm : public AForm {
  public:
   RobotomyRequestForm();
@@ -8,5 +11,5 @@ class RobotomyRequestForm : public AForm {
   RobotomyRequestForm(const RobotomyRequestForm& ref);
   RobotomyRequestForm& operator=(const RobotomyRequestForm& ref);
 
-  void execute(Bureaucrat const& Shrub);
+  bool execute(Bureaucrat const& robot) const;
 };

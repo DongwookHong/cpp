@@ -6,15 +6,13 @@
 void test1();
 int main() {
   test1();
-  // test2();
-  // test3();
-  // test4();
+
   return 0;
 }
 
 void test1() {
   try {
-    Bureaucrat test1("A", 40);
+    Bureaucrat test1("A", 1);
     Form test2("B", 30, 0);
     test1.signForm(test2);
     test2.beSigned(test1);

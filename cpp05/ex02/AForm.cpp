@@ -22,12 +22,12 @@ void AForm::beSigned(const Bureaucrat& Burea) {
   }
 }
 
-bool AForm::beExecute() {
+bool AForm::beExecute() const {
   if (this->IsSigned == true &&
       this->getExecuteGrade() <= this->getSignGrade()) {
-    return 1;
+    return true;
   } else {
-    return 0;
+    return false;
   }
 }
 

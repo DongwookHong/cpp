@@ -32,25 +32,25 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(
   return *this;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const& Shrub) {
+bool ShrubberyCreationForm::execute(Bureaucrat const& Shrub) const {
   std::ofstream file;
   std::string filename;
   filename = Shrub.getName() + "_shrubbery";
 
-  if (!beExecute()) {
+  if (beExecute() == false) {
     std::cout << Shrub.getName()
               << "'s grade is lower than ShrubberyCreation's execute grade."
               << std::endl;
-    return;
+    return true;
   }
 
   file.open(filename.c_str());
   if (file.fail()) {
     std::cout << "check, this " << filename << " file." << std::endl;
-    return;
+    return true;
   }
 
   file << ASCII_TREES;
 
-  return;
+  return false;
 }

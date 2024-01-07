@@ -5,6 +5,8 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class AForm {
  protected:
   const std::string name;
@@ -26,10 +28,10 @@ class AForm {
   unsigned int getExecuteGrade() const;
   bool getType() const;
 
-  virtual void execute(Bureaucrat const& executor) = 0;
+  virtual bool execute(Bureaucrat const& executor) const = 0;
 
   void beSigned(const Bureaucrat& Burea);
-  bool beExecute();
+  bool beExecute() const;
 
   class GradeTooHighException : public std::exception {
    public:
