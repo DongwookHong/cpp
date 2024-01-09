@@ -32,7 +32,7 @@ void Bureaucrat::executeForm(Form const& form) {
   if (form.execute(*this)) {
     std::cout << this->name << " executed " << form.getName() << std::endl;
   } else {
-    std::cout << this->name << " executed " << form.getName() << std::endl;
+    std::cout << this->name << " can't executed " << form.getName() << std::endl;
   }
 }
 

@@ -41,16 +41,16 @@ bool ShrubberyCreationForm::execute(Bureaucrat const& Shrub) const {
     std::cout << Shrub.getName()
               << "'s grade is lower than ShrubberyCreation's execute grade."
               << std::endl;
-    return true;
+    return false;
   }
 
   file.open(filename.c_str());
   if (file.fail()) {
     std::cout << "check, this " << filename << " file." << std::endl;
-    return true;
+    return false;
   }
 
   file << ASCII_TREES;
 
-  return false;
+  return true;
 }

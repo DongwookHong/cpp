@@ -27,7 +27,7 @@ void test1() {
     // shrubberyForm.execute(bureaucrat);
     bureaucrat.executeForm(shrubberyForm);
   } catch (std::exception& e) {
-    std::cout << "catch exception of shrubberyCreationFormTest" << std::endl;
+    std::cout << "Failed shrubberyCreationFormTest" << std::endl;
   }
 }
 
@@ -38,7 +38,7 @@ void test2() {
     robo.beSigned(bureaucrat);
     bureaucrat.executeForm(robo);
   } catch (std::exception& e) {
-    std::cout << "catch exception of RobotomyRequestForm" << std::endl;
+    std::cout << "Failed RobotomyRequestForm" << std::endl;
   }
 }
 
@@ -49,6 +49,6 @@ void test3() {
     pre.beSigned(bureaucrat);
     bureaucrat.executeForm(pre);
   } catch (std::exception& e) {
-    std::cout << "catch exception of PresidentialPardonForm" << std::endl;
+    std::cout << "Failed PresidentialPardonForm" << std::endl;
   }
 }

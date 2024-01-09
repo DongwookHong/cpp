@@ -13,7 +13,10 @@ Intern::Intern(const Intern& ref) { *this = ref; }
 
 Intern::~Intern() {}
 
-Intern& Intern::operator=(const Intern& ref) { return *this; }
+Intern& Intern::operator=(const Intern& ref) {
+  if (this == &ref) return *this;
+  return *this;
+}
 
 Form* Intern::getNewShrubberyCreationForm(const std::string& name) const {
   return new ShrubberyCreationForm(name);
