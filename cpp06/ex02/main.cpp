@@ -40,19 +40,19 @@ void identify(Base& p) {
     (void)test1;
     std::cout << "reference is A" << std::endl;
 
-  } catch (std::bad_cast& e) {
+  } catch (std::exception& e) {
   }
   try {
     B& test2 = dynamic_cast<B&>(p);
     (void)test2;
     std::cout << "reference is B" << std::endl;
-  } catch (std::bad_cast& e) {
+  } catch (std::exception& e) {
   }
   try {
     C& test3 = dynamic_cast<C&>(p);
     std::cout << "reference is C" << std::endl;
     (void)test3;
-  } catch (std::bad_cast& e) {
+  } catch (std::exception& e) {
   }
 }
 
