@@ -1,5 +1,7 @@
 #pragma once
-
+#include <exception>
+#include <iostream>
+#include <stdexcept>
 template <typename T>
 
 class Array {
@@ -35,7 +37,7 @@ class Array {
     if (idx < 0 || idx >= len)
       throw std::out_of_range("out of range");
     else
-    return array[idx];
+      return array[idx];
   }
 
   size_t getSize() const { return len; }
