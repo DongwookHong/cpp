@@ -22,6 +22,7 @@ void test1() {
     vec.push_back(i);
   }
   try {
+    easyfind(vec, 3);
     std::cout << "find it " << '\n';
   } catch (std::runtime_error& e) {
     std::cout << e.what() << std::endl;
@@ -34,6 +35,7 @@ void test2() {
     lst.push_back(i);
   }
   try {
+    easyfind(lst, 1);
     std::cout << "find it " << '\n';
   } catch (std::runtime_error& e) {
     std::cout << e.what() << std::endl;
@@ -46,6 +48,7 @@ void test3() {
     deq.push_back(i);
   }
   try {
+    easyfind(deq, 7);
     std::cout << "find it " << '\n';
   } catch (std::runtime_error& e) {
     std::cout << e.what() << std::endl;
