@@ -31,7 +31,7 @@ void test1() {
 
 void test2() {
   std::list<int> lst;
-  for (std::vector<int>::size_type i = 0; i < 5; i++) {
+  for (std::list<int>::size_type i = 0; i < 5; i++) {
     lst.push_back(i);
   }
   try {
@@ -44,7 +44,7 @@ void test2() {
 
 void test3() {
   std::deque<int> deq;
-  for (std::vector<int>::size_type i = 0; i < 5; i++) {
+  for (std::deque<int>::size_type i = 0; i < 5; i++) {
     deq.push_back(i);
   }
   try {
