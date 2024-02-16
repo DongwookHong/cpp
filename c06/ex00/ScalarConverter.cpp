@@ -120,6 +120,7 @@ bool ScalarConverter::Check_Double(const std::string& str, double& doubleForm) {
   }
 }
 
+
 bool ScalarConverter::Check_Char(const std::string& input, char& charForm) {
   if (input.size() == 1) {
     charForm = static_cast<char>(input[0]);
