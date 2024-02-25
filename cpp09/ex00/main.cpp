@@ -11,7 +11,7 @@ int main(int ac ,char **av)
 
     if (ac != 2)
     {
-        std::cout << " error" <<std::endl;
+        std::cout << " Error" <<std::endl;
         return 1;
     }
     BitcoinExchange btc(av[1]);
