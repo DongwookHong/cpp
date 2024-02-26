@@ -31,7 +31,14 @@ class Array {
     return *this;
   }
 
-  Array(unsigned int n) : array(new T[n]), len(n) {}
+  Array(unsigned int n) : array(new T[n]), len(n){};
+
+  const T& operator[](size_t idx) const throw(std::exception) {
+    if (idx < 0 || idx >= len)
+      throw std::out_of_range("out of range");
+    else
+      return array[idx];
+  }
 
   T& operator[](size_t idx) throw(std::exception) {
     if (idx < 0 || idx >= len)

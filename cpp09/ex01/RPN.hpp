@@ -9,19 +9,18 @@ class RPN {
 
   double perform(double a, char op, double b);
 
- public:
   RPN();
-  RPN(std::string );
-  ~RPN();
   RPN(const RPN& other);
   RPN& operator=(const RPN& other);
+
+ public:
+  RPN(std::string);
+  ~RPN();
 
   void executeRpn(std::string& str);
 };
 
 class Error : public std::exception {
-   public:
-    const char* what(void) const throw();
-  };
-
-
+ public:
+  const char* what(void) const throw();
+};

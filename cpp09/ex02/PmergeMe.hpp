@@ -1,111 +1,66 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <vector>
+#include <climits>
 #include <cstdlib>
 #include <ctime>
+#include <deque>
+#include <iostream>
+#include <sstream>
+#include <utility>
+#include <vector>
 
-class PmergeMe{
-    private:
-    bool isSorted;
-    int oddNum;
-    int midSize;
-    int z;
-    
-    
-    std::vector<std::pair <int, int> >  Dpair;
-    std::vector<int>  vec;
-    std::vector<int>  jcob;
-    std::vector<int>  mainchain;
-    
-    int vecSize;
-    clock_t vecstart;
-    clock_t vecend;
+class PmergeMe {
+ private:
+  PmergeMe(const PmergeMe &instance);
+  PmergeMe &operator=(const PmergeMe &rhs);
 
-   
-   PmergeMe(const PmergeMe& other);
-  PmergeMe& operator=(const PmergeMe& other);
+  /* vector */
+  std::vector<int> vec;
+  std::vector<std::pair<int, int> > vpair;
+  std::vector<int> vJacobs;
+  std::vector<int> vchain;
+  int vsize;
+  int k;
 
+  /* share */
+  double oddvec;
+  int pairsize;
+  bool isSorted;
 
-    public:
-     PmergeMe();
-    ~PmergeMe();
+  /* deque */
+  std::deque<int> deq;
+  std::deque<std::pair<int, int> > dpair;
+  std::deque<int> dJacobs;
+  std::deque<int> deqmainchain;
 
+  int dsize;
+  int ic;
 
-    void start(int , char **);
-    void insertValue(int ,char **);
-    void pairSet();
-    void pair();
-    void jacobstal(int );
-    void pendingorder();
-    void pendtomain(int , int );
-    void mainSort(int , int , int );
-    void binaryinsert(int , int , int ) ;
-    void sortPair(int , int );
+ public:
+  /*vector function*/
+  void vjacobstal(int n);
+  void mainsort(int left, int mid, int right);
+  void pendtomain(int index, int bindex);
+  void binaryinsert(int value, int left, int right);
+  void pendingorder(void);
+  void sortpair(int left, int right);
+  void setVector(void);
+  void pairSet(void);
+
+  /* share function */
+  void inputValue(char **av);
+  void execute(char **av);
+
+  /*deque function*/
+  void jnumdeq(int n);
+  void mainsortdeq(int left, int mid, int right);
+  void pendtomaindeq(int idx, int bidx);
+  void binaryinsertdeq(int value, int left, int right);
+  void pendingorderdeq(void);
+  void sortdeque(int left, int right);
+  void pairdeque(void);
+  void pairdeq(void);
+
+  PmergeMe(void);
+  ~PmergeMe(void);
 };
-
-
-
-
-
-
-// #include <climits>
-// #include <cstdlib>
-// #include <ctime>
-// #include <deque>
-// #include <iostream>
-// #include <sstream>
-// #include <utility>
-// #include <vector>
-
-// class Pmerge {
-//  public:
-//   /* vector */
-//   std::vector<int> vec;
-//   std::vector<std::pair<int, int> > _vector;
-//   std::vector<int> _sequence;
-//   std::vector<int> mainchain;
-//   int _vecsize;
-//   int k;
-//   /* share */
-//   double oddvec;
-//   int pairsize;
-//   /* deque */
-//   std::deque<int> deq;
-//   std::deque<std::pair<int, int> > _deque;
-//   std::deque<int> _seq;
-//   std::deque<int> deqmainchain;
-//   int _deqsize;
-//   int ic;
-//   /*vector function*/
-//   void jnum(int n);
-//   void mainsort(int left, int mid, int right);
-//   void pendtomain(int index, int bindex);
-//   void binaryinsert(int value, int left, int right);
-//   void pendingorder(void);
-//   void sortpair(int left, int right);
-//   void pairvector(void);
-//   void pair(void);
-//   /* share function */
-//   bool input(int ac, char** av);
-//   void execute(int ac, char** av);
-//   void printvector(void);
-//   void vector(void);
-//   /*deque function*/
-//   void jnumdeq(int n);
-//   void mainsortdeq(int left, int mid, int right);
-//   void pendtomaindeq(int idx, int bidx);
-//   void binaryinsertdeq(int value, int left, int right);
-//   void pendingorderdeq(void);
-//   void sortdeque(int left, int right);
-//   void pairdeque(void);
-//   void pairdeq(void);
-
-//  private:
-//   //   Pmerge(void);
-//   //   //   Pmerge(**replace parameters **);
-//   //   Pmerge(Pmerge const &instance);
-//   //   Pmerge &operator=(Pmerge const &rhs);
-//   //   ~Pmerge(void);
-// };
