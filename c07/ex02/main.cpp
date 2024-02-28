@@ -4,7 +4,7 @@
 
 int main(void) {
   try {
-    Array<int> arr(3);
+    const Array<int> arr(3);
     // const Array<const int> arr_const(3);
 
     // const int* ptr = new int[2]P;

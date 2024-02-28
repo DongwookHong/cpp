@@ -19,12 +19,12 @@ void BitcoinExchange::checkCsvForm() {
   double value;
 
   if (!csv) {
-    std::cout << "Error: could not open file.";
+    std::cout << "Error: could not open file." << std::endl;
     throw Error();
   }
 
   if (std::getline(csv, read) && read != sub) {
-    std::cout << "Error: invalid form";
+    std::cout << "Error: invalid form" << std::endl;
     throw Error();
   }
 
@@ -34,17 +34,17 @@ void BitcoinExchange::checkCsvForm() {
 
     std::getline(iss, date, ',');
     if (!validDate(date)) {
-      std::cout << "invalid Date.";
+      std::cout << "invalid Date." << std::endl;
       throw Error();
     }
     std::getline(iss, valueStr);
     if (!validInput(valueStr)) {
-      std::cout << "Error: invalid Input.";
+      std::cout << "Error: invalid Input." << std::endl;
       throw Error();
     }
     std::istringstream valueStream(valueStr);
     if (!(valueStream >> value)) {
-      std::cout << "Error: invalid Input for value conversion.";
+      std::cout << "Error: invalid Input for value conversion." << std::endl;
       throw Error();
     }
 
@@ -60,6 +60,10 @@ bool BitcoinExchange::validDate(const std::string& date) {
   int i = 0;
 
   while (std::getline(iss, data, '-')) {
+    if (!isDigits(data)) {
+      std::cout << "Error: bad input => " << date << std::endl;
+      return false;
+    }
     std::istringstream dataStream(data);
     if (i == 0) {
       dataStream >> year;
@@ -81,6 +85,7 @@ bool BitcoinExchange::validDate(const std::string& date) {
     }
     ++i;
   }
+
   return i == 3;
 }
 
@@ -168,6 +173,11 @@ bool BitcoinExchange::checkDate(const std::string& date, int& year, int& month,
   }
 
   while (std::getline(dateStream, part, '-')) {
+    if (!isDigits(part)) {
+      std::cout << "Error: bad input => " << date << std::endl;
+      return false;
+    }
+
     std::istringstream partStream(part);
     switch (idx) {
       case 0:
@@ -233,14 +243,13 @@ bool BitcoinExchange::checkValue(const std::string& str) {
     std::cout << "Error: not a valid number." << std::endl;
     return false;
   }
-
-  if (value < 0) {
-    std::cout << "Error: not a positive number." << std::endl;
+  if (value > 1000) {
+    std::cout << "Error: too large a number." << std::endl;
     return false;
   }
 
-  if (str.length() > 10 || (str.length() == 10 && value > 2147483647)) {
-    std::cout << "Error: too large a number." << std::endl;
+  if (value < 0) {
+    std::cout << "Error: not a positive number." << std::endl;
     return false;
   }
 
@@ -283,3 +292,12 @@ std::string BitcoinExchange::doubleToString(double value) {
 }
 
 const char* BitcoinExchange::Error::what(void) const throw() { return ""; }
+
+bool BitcoinExchange::isDigits(const std::string& str) {
+  for (unsigned long i = 0; i < str.size(); i++) {
+    if (!isdigit(str[i])) {
+      return false;
+    }
+  }
+  return true;
+}

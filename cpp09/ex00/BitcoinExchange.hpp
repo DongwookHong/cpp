@@ -22,22 +22,23 @@ class BitcoinExchange {
   bool validInput(const std::string&);
 
   void ownCoin(std::string);
-  void checkInfo(const std::string& info);
-  bool checkDate(const std::string& date, int& year, int& month, int& day);
-  bool checkValue(const std::string& str);
+  void checkInfo(const std::string&);
+  bool checkDate(const std::string&, int&, int&, int&);
+  bool checkValue(const std::string&);
   void printData(const std::string&, double);
 
   BitcoinExchange();
-  BitcoinExchange(const BitcoinExchange& ref);
-  BitcoinExchange& operator=(const BitcoinExchange& ref);
+  BitcoinExchange(const BitcoinExchange&);
+  BitcoinExchange& operator=(const BitcoinExchange&);
 
  public:
   BitcoinExchange(char*);
   ~BitcoinExchange();
 
-  void checkFile(char* file);
-  std::string doubleToString(double value);
-
+  void checkFile(char*);
+  std::string doubleToString(double);
+  bool isDigits(const std::string&);
+  
   class Error : public std::exception {
    public:
     const char* what(void) const throw();

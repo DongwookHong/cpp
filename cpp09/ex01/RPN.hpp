@@ -7,17 +7,17 @@ class RPN {
  private:
   std::stack<double> numberStack;
 
-  double perform(double a, char op, double b);
+  double perform(double, char, double);
 
   RPN();
-  RPN(const RPN& other);
-  RPN& operator=(const RPN& other);
+  RPN(const RPN&);
+  RPN& operator=(const RPN&);
 
  public:
   RPN(std::string);
   ~RPN();
 
-  void executeRpn(std::string& str);
+  void executeRpn(std::string&);
 };
 
 class Error : public std::exception {

@@ -20,12 +20,13 @@ class PmergeMe {
   std::vector<int> vJacobs;
   std::vector<int> vchain;
   int vsize;
-  int k;
+  int vi;
 
   /* share */
   double oddvec;
   int pairsize;
   bool isSorted;
+  int cnt;
 
   /* deque */
   std::deque<int> deq;
@@ -33,33 +34,33 @@ class PmergeMe {
   std::deque<int> dJacobs;
   std::deque<int> deqmainchain;
 
+  int di;
   int dsize;
-  int ic;
 
  public:
   /*vector function*/
-  void vjacobstal(int n);
-  void mainsort(int left, int mid, int right);
-  void pendtomain(int index, int bindex);
-  void binaryinsert(int value, int left, int right);
-  void pendingorder(void);
-  void sortpair(int left, int right);
+  void vjacobstal(int);
+  void mainsortvec(int, int, int);
+  void ptomain(int, int);
+  void binaryinsert(int, int, int);
+  void porder(void);
+  void sortVector(int, int);
   void setVector(void);
   void pairSet(void);
 
   /* share function */
-  void inputValue(char **av);
-  void execute(char **av);
+  void inputValue(char **);
+  void execute(char **);
 
   /*deque function*/
-  void jnumdeq(int n);
-  void mainsortdeq(int left, int mid, int right);
-  void pendtomaindeq(int idx, int bidx);
-  void binaryinsertdeq(int value, int left, int right);
-  void pendingorderdeq(void);
-  void sortdeque(int left, int right);
-  void pairdeque(void);
-  void pairdeq(void);
+  void djacobstal(int);
+  void mainsortdeq(int, int, int);
+  void ptomaindeq(int, int);
+  void binaryinsertdeq(int, int, int);
+  void porderdeq(void);
+  void sortDeque(int, int);
+  void setDeque(void);
+  void pairsetdeq(void);
 
   PmergeMe(void);
   ~PmergeMe(void);
